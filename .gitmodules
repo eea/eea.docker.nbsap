@@ -1,0 +1,5 @@
+[submodule "nbsap"]
+	path = nbsap
+	url = https://github.com/eea/nbsap.git
+[submodule "eea.nbsap"]
+	branch = master
