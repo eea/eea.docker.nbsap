@@ -15,7 +15,7 @@ db:
 ch:
     image:nbsap_web
     volumes:
-        - ./instance_ch/:/nbsap/instance
+        - ./countries_config/instance_ch/:/nbsap/instance
     ports:
         - "8000:7012"
     links:
@@ -25,7 +25,7 @@ ch:
 cy:
     image:nbsap_web
     volumes:
-        - ./instance_cy/:/nbsap/instance
+        - ./countries_config/instance_cy/:/nbsap/instance
     ports:
         - "8000:7003"
     links:
@@ -35,7 +35,7 @@ cy:
 de:
     image:nbsap_web
     volumes:
-        - ./instance_de/:/nbsap/instance
+        - ./countries_config/instance_de/:/nbsap/instance
     ports:
         - "8000:7001"
     links:
@@ -45,7 +45,7 @@ de:
 dk:
     image:nbsap_web
     volumes:
-        - ./instance_dk/:/nbsap/instance
+        - ./countries_config/instance_dk/:/nbsap/instance
     ports:
         - "8000:7004"
     links:
@@ -55,7 +55,7 @@ dk:
 ee:
     image:nbsap_web
     volumes:
-        - ./instance_ee/:/nbsap/instance
+        - ./countries_config/instance_ee/:/nbsap/instance
     ports:
         - "8000:7005"
     links:
@@ -65,7 +65,7 @@ ee:
 hu:
     image:nbsap_web
     volumes:
-        - ./instance_hu/:/nbsap/instance
+        - ./countries_config/instance_hu/:/nbsap/instance
     ports:
         - "8000:7002"
     links:
@@ -75,7 +75,7 @@ hu:
 it:
     image:nbsap_web
     volumes:
-        - ./instance_it/:/nbsap/instance
+        - ./countries_config/instance_it/:/nbsap/instance
     ports:
         - "8000:7006"
     links:
@@ -85,7 +85,7 @@ it:
 lu:
     image:nbsap_web
     volumes:
-        - ./instance_lu/:/nbsap/instance
+        - ./countries_config/instance_lu/:/nbsap/instance
     ports:
         - "8000:7007"
     links:
@@ -95,7 +95,7 @@ lu:
 lv:
     image:nbsap_web
     volumes:
-        - ./instance_lv/:/nbsap/instance
+        - ./countries_config/instance_lv/:/nbsap/instance
     ports:
         - "8000:7008"
     links:
@@ -105,7 +105,7 @@ lv:
 mt:
     image:nbsap_web
     volumes:
-        - ./instance_mt/:/nbsap/instance
+        - ./countries_config/instance_mt/:/nbsap/instance
     ports:
         - "8000:7009"
     links:
@@ -115,7 +115,7 @@ mt:
 sk:
     image:nbsap_web
     volumes:
-        - ./instance_sk/:/nbsap/instance
+        - ./countries_config/instance_sk/:/nbsap/instance
     ports:
         - "8000:7011"
     links:
@@ -125,7 +125,7 @@ sk:
 sl:
     image:nbsap_web
     volumes:
-        - ./instance_sl/:/nbsap/instance
+        - ./countries_config/instance_sl/:/nbsap/instance
     ports:
         - "8000:7010"
     links:
