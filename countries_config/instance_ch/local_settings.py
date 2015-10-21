@@ -2,7 +2,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ASSETS_ROOT = 'src/nbsap/static'
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ch.tct.biodiversity.europa.eu']
 
 # define your language preference
 ugettext = lambda s: s
