@@ -38,7 +38,7 @@ Create a new user:
 
     useradd nbsap -d /var/local/nbsap
 
-Create a docker group and add ecolex to it:
+Create a docker group and add user `nbsap` to it:
 
     sudo groupadd docker
     sudo usermod -aG docker nbsap
