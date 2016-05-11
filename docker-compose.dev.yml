@@ -12,7 +12,8 @@ db:
 web:
     build: ./nbsap
     command:
-        bash -c "python instance/manage.py migrate --run-syncdb &&
+        bash -c "python instance/manage.py load_fixtures
+                 python instance/manage.py migrate --run-syncdb &&
                  python instance/manage.py runserver 0.0.0.0:8000"
     volumes:
         - ./nbsap/:/nbsap
@@ -20,3 +21,6 @@ web:
         - "8000:8000"
     links:
         - db
+    depends_on:
+        - db
+

@@ -17,7 +17,7 @@ Vagrant.configure(2) do |config|
   config.vm.network "private_network", ip: "1.2.3.8"
 
   config.vm.provision "shell", inline: <<-SHELL
-      yes | cp docker-compose.dev.yml docker-compose.yml
+      yes | cp /var/local/eea.docker.nbsap/docker-compose.dev.yml /var/local/eea.docker.nbsap/docker-compose.yml
   SHELL
 
   config.vm.provision :docker
