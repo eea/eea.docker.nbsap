@@ -76,5 +76,6 @@ Contacts
 
 People involved in this project:
 
-* Eduard Zaharia (eduard.zaharia at eaudeweb.ro)
+* Dragos Catarahia (dragos.catarahia at eaudeweb.ro)
 * Iulia Chiriac (iulia.chiriac at eaudeweb.ro)
+* Eduard Zaharia (eduard.zaharia at eaudeweb.ro)
