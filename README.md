@@ -55,20 +55,22 @@ directory:
 
 1. Clone the repository:
 
-        git clone https://github.com/eea/eea.docker.nbsap.git --recursive
-        cd eea.docker.nbsap
+    git clone https://github.com/eea/eea.docker.nbsap.git --recursive
+    cd eea.docker.nbsap
 
-2. Copy `docker-compose.dev.yml` into `docker-compose.yml`:
+2. Copy enviroment files:
 
-        cp docker-compose.dev.yml docker-compose.yml
+    cp -R env.example env
 
-3. Generate a `local_settings.py` file and update it according to your needs:
 
-        cp nbsap/instance/local_settings.py.example nbsap/instance/local_settings.py
+3. Start docker containers:
 
-4. Start docker containers:
+    docker-compose up -d
 
-        docker-compose up -d
+4. Migrate and load fixtures
+
+    docker-compose run dev manage.py migrate
+    docker-compose run dev manage.py load_fixtures
 
 
 Contacts

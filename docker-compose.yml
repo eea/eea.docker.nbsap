@@ -1,0 +1,97 @@
+db:
+    restart: always
+    image: mysql:5.6
+    ports:
+        - "3306:3306"
+    environment:
+        MYSQL_ROOT_PASSWORD: nbsap
+        MYSQL_USER: nbsap
+        MYSQL_PASSWORD: nbsap
+        MYSQL_DATABASE: nbsap
+
+dev:
+    build: ./nbsap
+    command:
+        bash -c "python manage.py migrate --run-syncdb &&
+                 python manage.py runserver 0.0.0.0:8000"
+    env_file:
+        - 'env/dev.env'
+    volumes:
+        - ./nbsap/:/nbsap
+    ports:
+        - "8000:8000"
+    links:
+        - db
+
+ch:
+    image: nbsap_web
+    links:
+        - db
+    env_file:
+        - env/ch.env
+cy:
+    image: nbsap_web
+    links:
+        - db
+    env_file:
+        - env/cy.env
+de:
+    image: nbsap_web
+    links:
+        - db
+    env_file:
+        - env/de.env
+dk:
+    image: nbsap_web
+    links:
+        - db
+    env_file:
+        - env/dk.env
+ee:
+    image: nbsap_web
+    links:
+        - db
+    env_file:
+        - env/ee.env
+hu:
+    image: nbsap_web
+    links:
+        - db
+    env_file:
+        - env/hu.env
+it:
+    image: nbsap_web
+    links:
+        - db
+    env_file:
+        - env/it.env
+lu:
+    image: nbsap_web
+    links:
+        - db
+    env_file:
+        - env/lu.env
+lv:
+    image: nbsap_web
+    links:
+        - db
+    env_file:
+        - env/lv.env
+mt:
+    image: nbsap_web
+    links:
+        - db
+    env_file:
+        - env/mt.env
+sk:
+    image: nbsap_web
+    links:
+        - db
+    env_file:
+        - env/sk.env
+sl:
+    image: nbsap_web
+    links:
+        - db
+    env_file:
+        - env/sl.env
