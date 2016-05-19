@@ -73,6 +73,22 @@ directory:
     docker-compose run dev manage.py load_fixtures
 
 
+
+Deployment to rancher
+----------------------
+
+First time when deploying a new instance
+    rancher-compose -e env/<instance_name>.env up -d <instance_name>
+
+After changing docker-compose or rancher-compose file
+    rancher-compose -e env/<instance_name>.env up -d --upgrade <instance_name>
+    rancher-compose -e env/<instance_name>.env up -d --confirm-upgrade <instance_name>
+
+When the image is changed
+    rancher-compose -e env/<instance_name>.env pull <instance_name>
+    rancher-compose -e env/<instance_name>.env up -d --force-upgrade <instance_name>
+
+
 Contacts
 ========
 
