@@ -1,0 +1,38 @@
+db:
+    scale: 1
+be:
+    scale: 1
+ch:
+    scale: 1
+cy:
+    scale: 1
+de:
+    scale: 1
+dk:
+    scale: 1
+ee:
+    scale: 1
+hu:
+    scale: 1
+ie:
+    scale: 1
+it:
+    scale: 1
+lu:
+    scale: 1
+lv:
+    scale: 1
+mt:
+    scale: 1
+nl:
+    scale: 1
+sk:
+    scale: 1
+sl:
+    scale: 1
+uk:
+    scale: 1
+ectct:
+    scale: 1
+dev:
+    scale: 0
