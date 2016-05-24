@@ -1,0 +1,509 @@
+db:
+    restart: always
+    image: mysql:5.6
+    volumes_from:
+        - db-data
+    environment:
+        MYSQL_ROOT_PASSWORD: ${DB_PASS}
+        MYSQL_USER: ${DB_USER}
+        MYSQL_PASSWORD: ${DB_PASS}
+    labels:
+        io.rancher.sidekicks: db-data
+        io.rancher.scheduler.affinity:host_label: db=yes,tct=yes
+
+db-data:
+    image: busybox
+    volumes:
+        - /var/lib/mysql
+    labels:
+        io.rancher.container.start_once: 'true'
+    tty: true
+    stdin_open: true
+
+be:
+    image: eeacms/nbsap:1.0
+    links:
+        - db
+    environment:
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASS=${DB_PASS}
+        - DB_HOST=${DB_HOST}
+
+        - SECRET_KEY=${SECRET_KEY}
+        - SENTRY_DSN=${SENTRY_DSN}
+
+        - DEBUG=true
+        - LANGUAGE_CODE=en
+        - LANGUAGES=en,fr,nl,de-de
+
+        - EU_STRATEGY=true
+        - EU_STRATEGY_ADD=true
+        - NAT_STRATEGY=true
+        - SITE_HEADER=Reporting tool towards the Aichi targets and the EU Strategy, Contribution by Belgium
+    command:
+        gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
+    labels:
+        io.rancher.container.pull_image: always
+        io.rancher.scheduler.affinity:host_label: tct=yes
+
+ch:
+    image: eeacms/nbsap:1.0
+    links:
+        - db
+    environment:
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASS=${DB_PASS}
+        - DB_HOST=${DB_HOST}
+
+        - SECRET_KEY=${SECRET_KEY}
+        - SENTRY_DSN=${SENTRY_DSN}
+
+        - DEBUG=true
+        - LANGUAGE_CODE=en
+        - LANGUAGES=fr-ch,de-ch,it-ch,en
+
+        - EU_STRATEGY=true
+        - EU_STRATEGY_ADD=true
+        - NAT_STRATEGY=true
+        - SITE_HEADER=Reporting tool towards the AICHI targets, contribution by Switzerland
+    command:
+        gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
+    labels:
+        io.rancher.container.pull_image: always
+        io.rancher.scheduler.affinity:host_label: tct=yes
+
+cy:
+    image: eeacms/nbsap:1.0
+    links:
+        - db
+    environment:
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASS=${DB_PASS}
+        - DB_HOST=${DB_HOST}
+
+        - SECRET_KEY=${SECRET_KEY}
+        - SENTRY_DSN=${SENTRY_DSN}
+
+        - DEBUG=true
+        - LANGUAGE_CODE=en-us
+        - LANGUAGES=en-us
+
+        - EU_STRATEGY=true
+        - EU_STRATEGY_ADD=false
+        - NAT_STRATEGY=true
+        - SITE_HEADER=Reporting tool towards the AICHI targets, contribution by Cyprus
+    command:
+        gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
+    labels:
+        io.rancher.container.pull_image: always
+        io.rancher.scheduler.affinity:host_label: tct=yes
+
+de:
+    image: eeacms/nbsap:1.0
+    links:
+        - db
+    environment:
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASS=${DB_PASS}
+        - DB_HOST=${DB_HOST}
+
+        - SECRET_KEY=${SECRET_KEY}
+        - SENTRY_DSN=${SENTRY_DSN}
+
+        - DEBUG=true
+        - LANGUAGE_CODE=en-us
+        - LANGUAGES=de-de,en-us
+
+        - EU_STRATEGY=true
+        - EU_STRATEGY_ADD=false
+        - NAT_STRATEGY=true
+        - SITE_HEADER=Reporting tool towards the AICHI targets, contribution by Germany
+    command:
+        gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
+    labels:
+        io.rancher.container.pull_image: always
+        io.rancher.scheduler.affinity:host_label: tct=yes
+
+dk:
+    image: eeacms/nbsap:1.0
+    links:
+        - db
+    environment:
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASS=${DB_PASS}
+        - DB_HOST=${DB_HOST}
+
+        - SECRET_KEY=${SECRET_KEY}
+        - SENTRY_DSN=${SENTRY_DSN}
+
+        - DEBUG=true
+        - LANGUAGE_CODE=en-us
+        - LANGUAGES=en-us
+
+        - EU_STRATEGY=true
+        - EU_STRATEGY_ADD=false
+        - NAT_STRATEGY=true
+        - SITE_HEADER=Reporting tool towards the AICHI targets, contribution by Denmark
+    command:
+        gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
+    labels:
+        io.rancher.container.pull_image: always
+        io.rancher.scheduler.affinity:host_label: tct=yes
+
+ee:
+    image: eeacms/nbsap:1.0
+    links:
+        - db
+    environment:
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASS=${DB_PASS}
+        - DB_HOST=${DB_HOST}
+
+        - SECRET_KEY=${SECRET_KEY}
+        - SENTRY_DSN=${SENTRY_DSN}
+
+        - DEBUG=true
+        - LANGUAGE_CODE=en-us
+        - LANGUAGES=en-us
+
+        - EU_STRATEGY=true
+        - EU_STRATEGY_ADD=false
+        - NAT_STRATEGY=true
+        - SITE_HEADER=Reporting tool towards the AICHI targets, contribution by Estonia
+    command:
+        gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
+    labels:
+        io.rancher.container.pull_image: always
+        io.rancher.scheduler.affinity:host_label: tct=yes
+
+hu:
+    image: eeacms/nbsap:1.0
+    links:
+        - db
+    environment:
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASS=${DB_PASS}
+        - DB_HOST=${DB_HOST}
+
+        - SECRET_KEY=${SECRET_KEY}
+        - SENTRY_DSN=${SENTRY_DSN}
+
+        - DEBUG=true
+        - LANGUAGE_CODE=en-us
+        - LANGUAGES=en-us
+
+        - EU_STRATEGY=true
+        - EU_STRATEGY_ADD=false
+        - NAT_STRATEGY=true
+        - SITE_HEADER=Reporting tool towards the AICHI targets, contribution by Hungary
+    command:
+        gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
+    labels:
+        io.rancher.container.pull_image: always
+        io.rancher.scheduler.affinity:host_label: tct=yes
+
+ie:
+    image: eeacms/nbsap:1.0
+    links:
+        - db
+    environment:
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASS=${DB_PASS}
+        - DB_HOST=${DB_HOST}
+
+        - SECRET_KEY=${SECRET_KEY}
+        - SENTRY_DSN=${SENTRY_DSN}
+
+        - DEBUG=true
+        - LANGUAGE_CODE=en-us
+        - LANGUAGES=en-us
+
+        - EU_STRATEGY=true
+        - EU_STRATEGY_ADD=false
+        - NAT_STRATEGY=true
+        - SITE_HEADER=Reporting tool towards the AICHI targets, contribution by Ireland
+    command:
+        gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
+    labels:
+        io.rancher.container.pull_image: always
+        io.rancher.scheduler.affinity:host_label: tct=yes
+
+it:
+    image: eeacms/nbsap:1.0
+    links:
+        - db
+    environment:
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASS=${DB_PASS}
+        - DB_HOST=${DB_HOST}
+
+        - SECRET_KEY=${SECRET_KEY}
+        - SENTRY_DSN=${SENTRY_DSN}
+
+        - DEBUG=true
+        - LANGUAGE_CODE=en-us
+        - LANGUAGES=en-us
+
+        - EU_STRATEGY=true
+        - EU_STRATEGY_ADD=false
+        - NAT_STRATEGY=true
+        - SITE_HEADER=Reporting tool towards the AICHI targets, contribution by Italy
+    command:
+        gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
+    labels:
+        io.rancher.container.pull_image: always
+        io.rancher.scheduler.affinity:host_label: tct=yes
+
+lu:
+    image: eeacms/nbsap:1.0
+    links:
+        - db
+    environment:
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASS=${DB_PASS}
+        - DB_HOST=${DB_HOST}
+
+        - SECRET_KEY=${SECRET_KEY}
+        - SENTRY_DSN=${SENTRY_DSN}
+
+        - DEBUG=true
+        - LANGUAGE_CODE=en-us
+        - LANGUAGES=fr,en-us
+
+        - EU_STRATEGY=true
+        - EU_STRATEGY_ADD=false
+        - NAT_STRATEGY=true
+        - SITE_HEADER=Reporting tool towards the AICHI targets, contribution by Luxembourg
+    command:
+        gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
+    labels:
+        io.rancher.container.pull_image: always
+        io.rancher.scheduler.affinity:host_label: tct=yes
+
+lv:
+    image: eeacms/nbsap:1.0
+    links:
+        - db
+    environment:
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASS=${DB_PASS}
+        - DB_HOST=${DB_HOST}
+
+        - SECRET_KEY=${SECRET_KEY}
+        - SENTRY_DSN=${SENTRY_DSN}
+
+        - DEBUG=true
+        - LANGUAGE_CODE=en-us
+        - LANGUAGES=en-us
+
+        - EU_STRATEGY=true
+        - EU_STRATEGY_ADD=false
+        - NAT_STRATEGY=true
+        - SITE_HEADER=Reporting tool towards the AICHI targets, contribution by Latvia
+    command:
+        gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
+    labels:
+        io.rancher.container.pull_image: always
+        io.rancher.scheduler.affinity:host_label: tct=yes
+
+mt:
+    image: eeacms/nbsap:1.0
+    links:
+        - db
+    environment:
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASS=${DB_PASS}
+        - DB_HOST=${DB_HOST}
+
+        - SECRET_KEY=${SECRET_KEY}
+        - SENTRY_DSN=${SENTRY_DSN}
+
+        - DEBUG=true
+        - LANGUAGE_CODE=en-us
+        - LANGUAGES=en-us
+
+        - EU_STRATEGY=true
+        - EU_STRATEGY_ADD=false
+        - NAT_STRATEGY=true
+        - SITE_HEADER=Reporting tool towards the AICHI targets, contribution by Malta
+    command:
+        gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
+    labels:
+        io.rancher.container.pull_image: always
+        io.rancher.scheduler.affinity:host_label: tct=yes
+
+nl:
+    image: eeacms/nbsap:1.0
+    links:
+        - db
+    environment:
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASS=${DB_PASS}
+        - DB_HOST=${DB_HOST}
+
+        - SECRET_KEY=${SECRET_KEY}
+        - SENTRY_DSN=${SENTRY_DSN}
+
+        - DEBUG=true
+        - LANGUAGE_CODE=en
+        - LANGUAGES=nl,en
+
+        - EU_STRATEGY=true
+        - EU_STRATEGY_ADD=false
+        - NAT_STRATEGY=true
+        - SITE_HEADER=Reporting tool towards the AICHI targets, contribution by the Netherlands
+        - ENABLE_REG_INDICATORS=False
+    command:
+        gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
+    labels:
+        io.rancher.container.pull_image: always
+        io.rancher.scheduler.affinity:host_label: tct=yes
+
+
+sk:
+    image: eeacms/nbsap:1.0
+    links:
+        - db
+    environment:
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASS=${DB_PASS}
+        - DB_HOST=${DB_HOST}
+
+        - SECRET_KEY=${SECRET_KEY}
+        - SENTRY_DSN=${SENTRY_DSN}
+
+        - DEBUG=true
+        - LANGUAGE_CODE=en-us
+        - LANGUAGES=en-us
+
+        - EU_STRATEGY=true
+        - EU_STRATEGY_ADD=false
+        - NAT_STRATEGY=true
+        - SITE_HEADER=Reporting tool towards the AICHI targets, contribution by Slovakia
+    command:
+        gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
+    labels:
+        io.rancher.container.pull_image: always
+        io.rancher.scheduler.affinity:host_label: tct=yes
+
+sl:
+    image: eeacms/nbsap:1.0
+    links:
+        - db
+    environment:
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASS=${DB_PASS}
+        - DB_HOST=${DB_HOST}
+
+        - SECRET_KEY=${SECRET_KEY}
+        - SENTRY_DSN=${SENTRY_DSN}
+
+        - DEBUG=true
+        - LANGUAGE_CODE=en-us
+        - LANGUAGES=en-us
+
+        - EU_STRATEGY=true
+        - EU_STRATEGY_ADD=false
+        - NAT_STRATEGY=true
+        - SITE_HEADER=Reporting tool towards the AICHI targets, contribution by Slovenia
+    command:
+        gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
+    labels:
+        io.rancher.container.pull_image: always
+        io.rancher.scheduler.affinity:host_label: tct=yes
+
+uk:
+    image: eeacms/nbsap:1.0
+    links:
+        - db
+    environment:
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASS=${DB_PASS}
+        - DB_HOST=${DB_HOST}
+
+        - SECRET_KEY=${SECRET_KEY}
+        - SENTRY_DSN=${SENTRY_DSN}
+
+        - DEBUG=true
+        - LANGUAGE_CODE=en
+        - LANGUAGES=en
+
+        - EU_STRATEGY=true
+        - SITE_HEADER=Reporting tool towards the Aichi targets and the EU Strategy, Contribution by United Kingdom
+    command:
+        gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
+    labels:
+        io.rancher.container.pull_image: always
+        io.rancher.scheduler.affinity:host_label: tct=yes
+
+ectct:
+    image: eeacms/nbsap:1.0
+    links:
+        - db
+    environment:
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASS=${DB_PASS}
+        - DB_HOST=${DB_HOST}
+
+        - SECRET_KEY=${SECRET_KEY}
+        - SENTRY_DSN=${SENTRY_DSN}
+
+        - DEBUG=true
+        - LANGUAGE_CODE=en
+        - LANGUAGES=en
+
+        - EU_STRATEGY=true
+        - EU_STRATEGY_ADD=false
+        - NAT_STRATEGY=false
+        - SITE_HEADER=Reporting tool towards the AICHI targets, contribution by European Commission
+    command:
+        gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
+    labels:
+        io.rancher.container.pull_image: always
+        io.rancher.scheduler.affinity:host_label: tct=yes
+
+demo:
+    image: eeacms/nbsap:1.0
+    links:
+        - db
+    environment:
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASS=${DB_PASS}
+        - DB_HOST=${DB_HOST}
+
+        - SECRET_KEY=${SECRET_KEY}
+        - SENTRY_DSN=${SENTRY_DSN}
+
+        - DEBUG=true
+        - LANGUAGE_CODE=en
+        - LANGUAGES=en,fr,nl,de-de
+
+        - EU_STRATEGY=true
+        - EU_STRATEGY_ADD=true
+        - NAT_STRATEGY=true
+        - SITE_HEADER=Reporting tool towards the AICHI targets, contribution by European Commission
+        - ENABLE_REG_INDICATORS=true
+    command:
+        gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
+    labels:
+        io.rancher.container.pull_image: always
+        io.rancher.scheduler.affinity:host_label: tct=yes
+
