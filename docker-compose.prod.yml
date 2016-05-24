@@ -44,7 +44,6 @@ be:
     command:
         gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
     labels:
-        io.rancher.container.pull_image: always
         io.rancher.scheduler.affinity:host_label: tct=yes
 
 ch:
@@ -71,7 +70,6 @@ ch:
     command:
         gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
     labels:
-        io.rancher.container.pull_image: always
         io.rancher.scheduler.affinity:host_label: tct=yes
 
 cy:
@@ -98,7 +96,6 @@ cy:
     command:
         gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
     labels:
-        io.rancher.container.pull_image: always
         io.rancher.scheduler.affinity:host_label: tct=yes
 
 de:
@@ -125,7 +122,6 @@ de:
     command:
         gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
     labels:
-        io.rancher.container.pull_image: always
         io.rancher.scheduler.affinity:host_label: tct=yes
 
 dk:
@@ -152,7 +148,6 @@ dk:
     command:
         gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
     labels:
-        io.rancher.container.pull_image: always
         io.rancher.scheduler.affinity:host_label: tct=yes
 
 ee:
@@ -179,7 +174,6 @@ ee:
     command:
         gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
     labels:
-        io.rancher.container.pull_image: always
         io.rancher.scheduler.affinity:host_label: tct=yes
 
 hu:
@@ -206,7 +200,6 @@ hu:
     command:
         gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
     labels:
-        io.rancher.container.pull_image: always
         io.rancher.scheduler.affinity:host_label: tct=yes
 
 ie:
@@ -233,7 +226,6 @@ ie:
     command:
         gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
     labels:
-        io.rancher.container.pull_image: always
         io.rancher.scheduler.affinity:host_label: tct=yes
 
 it:
@@ -260,7 +252,6 @@ it:
     command:
         gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
     labels:
-        io.rancher.container.pull_image: always
         io.rancher.scheduler.affinity:host_label: tct=yes
 
 lu:
@@ -287,7 +278,6 @@ lu:
     command:
         gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
     labels:
-        io.rancher.container.pull_image: always
         io.rancher.scheduler.affinity:host_label: tct=yes
 
 lv:
@@ -314,7 +304,6 @@ lv:
     command:
         gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
     labels:
-        io.rancher.container.pull_image: always
         io.rancher.scheduler.affinity:host_label: tct=yes
 
 mt:
@@ -341,7 +330,6 @@ mt:
     command:
         gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
     labels:
-        io.rancher.container.pull_image: always
         io.rancher.scheduler.affinity:host_label: tct=yes
 
 nl:
@@ -369,7 +357,6 @@ nl:
     command:
         gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
     labels:
-        io.rancher.container.pull_image: always
         io.rancher.scheduler.affinity:host_label: tct=yes
 
 
@@ -397,7 +384,6 @@ sk:
     command:
         gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
     labels:
-        io.rancher.container.pull_image: always
         io.rancher.scheduler.affinity:host_label: tct=yes
 
 sl:
@@ -424,7 +410,6 @@ sl:
     command:
         gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
     labels:
-        io.rancher.container.pull_image: always
         io.rancher.scheduler.affinity:host_label: tct=yes
 
 uk:
@@ -449,7 +434,6 @@ uk:
     command:
         gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
     labels:
-        io.rancher.container.pull_image: always
         io.rancher.scheduler.affinity:host_label: tct=yes
 
 ectct:
@@ -476,7 +460,6 @@ ectct:
     command:
         gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
     labels:
-        io.rancher.container.pull_image: always
         io.rancher.scheduler.affinity:host_label: tct=yes
 
 demo:
@@ -504,6 +487,5 @@ demo:
     command:
         gunicorn nbsap.wsgi:application --bind 0.0.0.0:8000
     labels:
-        io.rancher.container.pull_image: always
         io.rancher.scheduler.affinity:host_label: tct=yes
 
