@@ -55,36 +55,39 @@ directory:
 
 1. Clone the repository:
 
-    git clone https://github.com/eea/eea.docker.nbsap.git --recursive
-    cd eea.docker.nbsap
+        git clone https://github.com/eea/eea.docker.nbsap.git --recursive
+        cd eea.docker.nbsap
 
 2. Copy enviroment files:
 
-    cp -R env.example env
+        cp -R env.example env
 
 
 3. Start docker containers:
 
-    docker-compose up -d
+        docker-compose up -d
 
 4. Migrate and load fixtures
 
-    docker-compose run dev manage.py migrate
-    docker-compose run dev manage.py load_fixtures
+        docker-compose run dev manage.py migrate
+        docker-compose run dev manage.py load_fixtures
 
 
 
 Deployment to rancher
 ----------------------
 
-First time when deploying a new instance
+First time when deploying a new instance:
+
     rancher-compose -e env/<instance_name>.env up -d <instance_name>
 
-After changing docker-compose or rancher-compose file
+After changing docker-compose or rancher-compose file:
+
     rancher-compose -e env/<instance_name>.env up -d --upgrade <instance_name>
     rancher-compose -e env/<instance_name>.env up -d --confirm-upgrade <instance_name>
 
-When the image is changed
+When the image is changed:
+
     rancher-compose -e env/<instance_name>.env pull <instance_name>
     rancher-compose -e env/<instance_name>.env up -d --force-upgrade <instance_name>
 
